@@ -3,42 +3,8 @@ export default class Character {
       if (typeof name === 'string' && name.length > 2 && name.length < 10) {
         this.name = name;
       } else {throw new Error('invalid name')};
-      
-      let array = this.classes;
-      
-      if (array.includes(type)) {
-          this.type = type
-      } else {throw new Error('invalid type')};
-   
       this.health = 100;
       this.level = 1;
-      if (this.type === 'Bowerman') {
-          this.attack = 25;
-          this.defence = 25;
-      };
-      if (this,type === 'Swordsman') {
-          this.attack = 40;
-          this.defence = 10;
-      };
-      if (this,type === 'Magician') {
-          this.attack = 10;
-          this.defence = 40;
-      };
-      if (this,type === 'Daemon') {
-          this.attack = 10;
-          this.defence = 40;
-      };
-      if (this,type === 'Undead') {
-          this.attack = 25;
-          this.defence = 25;
-      };
-          if (this,type === 'Zombie') {
-          this.attack = 40;
-          this.defence = 10;
-      };
-    }
-      get classes() {
-        return ['Bowerman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
     };
     
     levelUp() {
@@ -56,6 +22,60 @@ export default class Character {
         if (this.health > 0) {
             this.health -= points * (1 - this.defence / 100);
         }
+    };
+};
+
+export class Bowerman extends Character {
+    constructor(name) {
+        super(name);
+        this.type = 'Bowerman';
+        this.attack = 25;
+        this.defence = 25;
+    };
+};
+
+export class Swordsman extends Character {
+    constructor(name) {
+        super(name);
+        this.type = 'Swordsman';
+        this.attack = 40;
+        this.defence = 10;
+    };
+};
+
+export class Magician extends Character {
+    constructor(name) {
+        super(name);
+        this.type = 'Magician';
+        this.attack = 10;
+        this.defence = 40;
+    };
+};
+
+export class Daemon extends Character {
+    constructor(name) {
+        super(name);
+        this.type = 'Daemon';
+        this.attack = 10;
+        this.defence = 40;
+    };
+};
+
+export class Undead extends Character {
+    constructor(name) {
+        super(name);
+        this.type = 'Undead';
+        this.attack = 25;
+        this.defence = 25;
+    };
+};
+
+export class Zombie extends Character {
+    constructor(name) {
+        super(name);
+        this.type = 'Zombie';
+        this.attack = 40;
+        this.defence = 10;
     };
 };
 
